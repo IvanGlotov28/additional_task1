@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional task 1</title>
+</head>
+<body>
+    // Задача 7. // Гра в кості. Правила гри:
+    // 1) користувач може кинути кості не більше двох разів (користувач сам вирішує чи робити, чи не робити другий кидок);
+    // 2) якщо випадає парне число, то кількість балів збільшується на це число;
+    // 3) якщо випадає непарне число, то кількість балів зменшується на це число;
+    // 4) виграє той, у кого кількість балів більша.
+    
+    <script>
+  
+const min = 1 , max = 6
+let scoreUserOne
+let scoreUserTwo
+const consent =`так`
+const refusal = `ні`
+let secondAttemptUserOne
+let firstattemptUserOne =  min + Math.floor(Math.random() * (max - min + 1))
+
+if (firstattemptUserOne%2 === 0) scoreUserOne = firstattemptUserOne  
+else scoreUserOne = 0
+alert(`У першого гравця випало = ${firstattemptUserOne}, Кількість балів першого гравця = ${scoreUserOne}`)
+    scoreUserOne = firstattemptUserOne
+   let requestSecondAttempt = prompt(`Кидаєте кості ще раз? (1 гравець)`)
+
+switch (requestSecondAttempt) {
+   case consent:  
+         secondAttemptUserOne = min + Math.floor(Math.random() * (max - min + 1))
+   if(secondAttemptUserOne%2 === 0) 
+         {scoreUserOne += secondAttemptUserOne 
+         alert(`У першого гравця випало= ${secondAttemptUserOne}, Кількість балів першого гравця = ${scoreUserOne}`)}
+   else {scoreUserOne -=  secondAttemptUserOne  
+         alert(`У першого гравця випало= ${secondAttemptUserOne}, Кількість балів першого гравця = ${scoreUserOne}`)} 
+      break;
+     case refusal: alert(`Кількість балів першого гравця = ${scoreUserOne}`)
+      break;
+}
+   
+
+  let firstAttemptUserTwo =  min + Math.floor(Math.random() * (max - min + 1))
+        if (firstAttemptUserTwo%2 === 0) scoreUserTwo = firstAttemptUserTwo 
+        else scoreUserTwo = 0
+        alert(`У другого гравця випало = ${firstAttemptUserTwo} Кількість балів другого гравця = ${scoreUserTwo}`)
+ 
+      prompt(`Кидаєте кості ще раз? (2 гравець)`)
+
+   switch (requestSecondAttempt) {
+      case consent: 
+         let secondAttemptUserTwo = min + Math.floor(Math.random() * (max - min + 1))
+         if(secondAttemptUserTwo %2 === 0){
+            scoreUserTwo += secondAttemptUserTwo
+            alert(`У другого гравця випало = ${secondAttemptUserTwo} Кількість балів другого гравця = ${scoreUserTwo}`)}
+         else {scoreUserTwo -= secondAttemptUserTwo
+            alert(`У другого гравця випало = ${secondAttemptUserTwo} Кількість балів другого гравця = ${scoreUserTwo}`)}
+         break;
+      case refusal:  alert(`Кількість балів другого гравця = ${scoreUserTwo}`)
+         break;
+   }
+
+   if (scoreUserOne > scoreUserTwo) alert(`Переміг гравець 1`)
+   else if (scoreUserOne === scoreUserTwo) alert(`Нічия`)
+   else alert(`Переміг гравець 2`)
+    </script>
+</body>
+</html>
